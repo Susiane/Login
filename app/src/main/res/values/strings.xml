@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Login</string>
+    <string name="hint_tv_email">EMAIL</string>
+    <string name="hint_tv_password">PASSWORD</string>
+    <string name="hint_tv_fist_name">FIRST NAME</string>
+    <string name="hint_tv_last_name">LAST NAME</string>
+    <string name="button_login">LOGIN</string>
+    <string name="button_sign_up">SIGN UP</string>
+    <string name="video_fail_message">Failed to initialize video</string>
+    <string name="activity_signup_name">SIGN UP</string>
+    <string name="photo_cancel">Cancel</string>
+    <string name="photo_ok">OK</string>
+
+    <string name="card_1">Scheduling your day for high performance</string>
+    <string name="card_2">What is your goal?</string>
+    <string name="card_3">Why have mentors?</string>
+    <string name="welcome">Welcome</string>
+</resources>

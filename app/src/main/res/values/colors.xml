@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#F3A576</color>
+    <color name="colorPrimaryDark">#F59859</color>
+    <color name="colorAccent">#56BB89</color>
+    <color name="orange">#F59859</color>
+    <color name="orange_tranparence">#33F59859</color>
+    <color name="orange_tranparence_button">#99F59859</color>
+    <color name="green">#56BB89</color>
+    <color name="blue">#446CB1</color>
+    <color name="grey_backgroung">#E9F0E5</color>
+    <color name="grey_text">#9E9E9E</color>
+    <color name="white">#ffffff</color>
+</resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_signup"
+    style="@style/AppTheme.Activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.laboratory.android.login.view.SignUpActivity">
+
+    <EditText
+        android:id="@+id/tx_first_name"
+        style="@style/AppTheme.Components.EditText"
+        android:elevation="2dp"
+        android:hint="@string/hint_tv_fist_name" />
+
+    <EditText
+        android:id="@+id/tx_last_name"
+        style="@style/AppTheme.Components.EditText"
+        android:elevation="2dp"
+        android:hint="@string/hint_tv_last_name" />
+
+    <EditText
+        android:id="@+id/tx_email"
+        style="@style/AppTheme.Components.EditText"
+        android:elevation="2dp"
+        android:hint="@string/hint_tv_email"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/tx_password"
+        style="@style/AppTheme.Components.EditText"
+        android:elevation="2dp"
+        android:hint="@string/hint_tv_password"
+        android:inputType="textPassword"/>
+
+    <Button
+        style="@style/AppTheme.Components.Button.Green"
+        android:onClick="signUp"
+        android:text="@string/button_sign_up"
+        android:textStyle="bold" />
+
+</LinearLayout>

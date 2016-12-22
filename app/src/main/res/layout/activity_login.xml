@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    style="@style/AppTheme.Activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.laboratory.android.login.view.LoginActivity">
+
+    <com.google.android.youtube.player.YouTubePlayerView
+        android:id="@+id/video_introduction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@color/grey_backgroung" />
+
+    <EditText
+        android:id="@+id/tx_email"
+        style="@style/AppTheme.Components.EditText"
+        android:elevation="2dp"
+        android:hint="@string/hint_tv_email"
+        android:inputType="textEmailAddress"/>
+
+    <EditText
+        android:id="@+id/tx_password"
+        style="@style/AppTheme.Components.EditText"
+        android:elevation="2dp"
+        android:hint="@string/hint_tv_password"
+        android:inputType="textPassword"/>
+
+    <Button
+        android:id="@+id/btn_login"
+        style="@style/AppTheme.Components.Button.Green"
+        android:onClick="login"
+        android:text="@string/button_login"
+        android:textStyle="bold" />
+
+    <Button
+        style="@style/AppTheme.Components.Button.Blue"
+        android:onClick="openSignUp"
+        android:text="@string/button_sign_up"
+        android:textStyle="bold" />
+
+
+</LinearLayout>
