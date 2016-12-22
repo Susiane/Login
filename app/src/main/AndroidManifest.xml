@@ -12,20 +12,25 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.LoginActivity"></activity>
-        <activity
-            android:name=".view.SignUpActivity"
-            android:label="@string/activity_signup_name" />
-        <activity
-            android:name=".view.WelcomeActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+
+        <activity android:name=".view.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.CropActivity"></activity>
+
+        <activity
+            android:name=".view.SignUpActivity"
+            android:label="@string/activity_signup_name">
+        </activity>
+
+        <activity
+            android:name=".view.WelcomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
     </application>
 
 </manifest>

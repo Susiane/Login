@@ -10,39 +10,25 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="256dp"
-        android:fitsSystemWindows="true"
-        android:background="@color/grey_backgroung">
+        android:background="@color/grey_backgroung"
+        android:fitsSystemWindows="true">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapse_toolbar"
+            style="@style/LayoutHeigAndWidtMatchParent"
             android:fitsSystemWindows="true"
             app:contentScrim="@color/colorPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            style="@style/LayoutHeigAndWidtMatchParent">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
             <RelativeLayout style="@style/LayoutHeigAndWidtMatchParent">
+
                 <ImageView
                     android:id="@+id/bg_header"
                     style="@style/LayoutHeigAndWidtMatchParent"
-                    android:src="@drawable/ctoolbar_background_1"
                     android:layout_marginBottom="70dp"
                     android:scaleType="centerCrop"
+                    android:src="@drawable/ctoolbar_background_1"
                     app:layout_collapseMode="pin" />
-                <!--
-                <com.laboratory.android.login.utils.RoundedImageView
-                    android:id="@+id/image_camera"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="130dp"
-                    android:background="@drawable/photo_camera"
-                    android:elevation="5dp"
-                    android:onClick="openCamera"
-                    android:scaleType="centerCrop"
-                    android:transitionName="imagemCompartilhada"
-                    app:layout_collapseMode="pin" />
-                -->
-
 
                 <ImageView
                     android:id="@+id/user_photo"
@@ -59,6 +45,7 @@
                     app:layout_collapseMode="pin" />
 
             </RelativeLayout>
+
             <android.support.v7.widget.Toolbar
                 android:id="@+id/MyToolbar"
                 android:layout_width="match_parent"
@@ -70,95 +57,107 @@
                     android:background="#00ffffff"
                     android:text="@string/welcome"
                     android:textColor="@color/white"
-                    android:textSize="20dp"
-                    />
+                    android:textSize="20dp" />
 
             </android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
+
     <android.support.v4.widget.NestedScrollView
         style="@style/LayoutHeigAndWidtMatchParent"
         android:background="@color/grey_backgroung"
-        android:padding="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
-        <RelativeLayout
-            style="@style/LayoutHeigAndWidtMatchParent">
+
+        <RelativeLayout style="@style/LayoutHeigAndWidtMatchParent">
+
             <android.support.v7.widget.CardView
-                android:id="@+id/um"
+                android:id="@+id/one"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true">
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="16dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
                     android:background="@color/white"
+                    android:orientation="vertical"
                     android:padding="10dp">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/card_1"
-                        android:paddingBottom="10dp"/>
+                        android:paddingBottom="10dp"
+                        android:text="@string/card_1" />
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/performance"
                         android:layout_gravity="center"
-                        android:id="@+id/imageView" />
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
-            <android.support.v7.widget.CardView
-                android:id="@+id/dois"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_below="@+id/um">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:background="@color/white"
-                    android:padding="10dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/card_2"
-                        android:paddingBottom="10dp"/>
-                    <ImageView
-                        android:layout_width="210dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/goal"
-                        android:layout_gravity="center"/>
+                        android:src="@drawable/performance" />
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/tres"
+                android:id="@+id/two"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/dois">
+                android:layout_below="@+id/one"
+                android:layout_marginTop="16dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
                     android:background="@color/white"
+                    android:orientation="vertical"
                     android:padding="10dp">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/card_3"
-                        android:paddingBottom="10dp"/>
+                        android:paddingBottom="10dp"
+                        android:text="@string/card_2" />
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/mentors"
                         android:layout_gravity="center"
-                        android:padding="5dp"/>
+                        android:src="@drawable/goal" />
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/three"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/two"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:text="@string/card_3" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/mentors" />
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>

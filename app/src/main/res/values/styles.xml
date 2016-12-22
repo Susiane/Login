@@ -21,6 +21,12 @@
     </style>
     <style name="AppTheme.Components.EditText">
         <item name="android:background">@drawable/background_edit_text</item>
+        <item name="android:maxLines">1</item>
+    </style>
+    <style name="AppTheme.Components.TextView">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:padding">3dp</item>
     </style>
     <style name="AppTheme.Components.Button">
         <item name="android:textColor">@android:color/white</item>

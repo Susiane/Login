@@ -2,45 +2,73 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
-    style="@style/AppTheme.Activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.laboratory.android.login.view.LoginActivity">
 
-    <com.google.android.youtube.player.YouTubePlayerView
-        android:id="@+id/video_introduction"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:background="@color/grey_backgroung" />
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:background="@color/colorPrimary">
 
-    <EditText
-        android:id="@+id/tx_email"
-        style="@style/AppTheme.Components.EditText"
-        android:elevation="2dp"
-        android:hint="@string/hint_tv_email"
-        android:inputType="textEmailAddress"/>
+        <com.google.android.youtube.player.YouTubePlayerView
+            android:id="@+id/video_introduction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
 
-    <EditText
-        android:id="@+id/tx_password"
-        style="@style/AppTheme.Components.EditText"
-        android:elevation="2dp"
-        android:hint="@string/hint_tv_password"
-        android:inputType="textPassword"/>
+    </RelativeLayout>
 
-    <Button
-        android:id="@+id/btn_login"
-        style="@style/AppTheme.Components.Button.Green"
-        android:onClick="login"
-        android:text="@string/button_login"
-        android:textStyle="bold" />
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:background="@color/grey_backgroung"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
-    <Button
-        style="@style/AppTheme.Components.Button.Blue"
-        android:onClick="openSignUp"
-        android:text="@string/button_sign_up"
-        android:textStyle="bold" />
+        <LinearLayout
+            style="@style/LayoutHeigAndWidtMatchParent"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/tx_email"
+                style="@style/AppTheme.Components.EditText"
+                android:layout_marginTop="16dp"
+                android:elevation="2dp"
+                android:hint="@string/hint_tv_email"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/tx_password"
+                style="@style/AppTheme.Components.EditText"
+                android:elevation="2dp"
+                android:hint="@string/hint_tv_password"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:id="@+id/tv_auth_message"
+                style="@style/AppTheme.Components.TextView"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_login"
+                style="@style/AppTheme.Components.Button.Green"
+                android:onClick="login"
+                android:text="@string/button_login"
+                android:textStyle="bold" />
+
+            <Button
+                style="@style/AppTheme.Components.Button.Blue"
+                android:layout_marginBottom="16dp"
+                android:onClick="openSignUp"
+                android:text="@string/button_sign_up"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 
 
 </LinearLayout>

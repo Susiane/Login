@@ -1,8 +1,10 @@
 package com.laboratory.android.login.view;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.transition.TransitionInflater;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -30,6 +32,7 @@ public class LoginActivity extends YouTubeBaseActivity implements YouTubePlayer.
     private FirebaseAuth mAuth;
     private LoginController loginController;
     private UserLogin userLogin;
+    private Intent intent;
 
 
     @Override
@@ -43,8 +46,12 @@ public class LoginActivity extends YouTubeBaseActivity implements YouTubePlayer.
         loginController = new LoginController(this);
     }
 
+    /**
+     * Method that is called from Login button, valid fields, do authentication and login
+     * @param v
+     */
     public void login(View v) {
-        Log.e("TAG", String.valueOf(loginController.isValidFields()));
+        loginController.cleanTextViewAuthMessage();
         if(loginController.isValidFields()){
             userLogin = loginController.getUserFromActivity();
             mAuth.signInWithEmailAndPassword(userLogin.geteMail(), userLogin.getPassword())
@@ -52,9 +59,7 @@ public class LoginActivity extends YouTubeBaseActivity implements YouTubePlayer.
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                Toast.makeText(LoginActivity.this, "Signed", Toast.LENGTH_LONG).show();
-                                Log.e("TAG", "Signed");
-                                Intent intent = new Intent(LoginActivity.this,WelcomeActivity.class);
+                                intent = new Intent(LoginActivity.this,WelcomeActivity.class);
                                 startActivity(intent);
                             }
                         }
@@ -63,12 +68,11 @@ public class LoginActivity extends YouTubeBaseActivity implements YouTubePlayer.
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             if (e instanceof FirebaseAuthInvalidCredentialsException) {
-                                Toast.makeText(LoginActivity.this, "Invalid password.", Toast.LENGTH_SHORT).show();
+                                loginController.showInTextViewAuthMessage(getResources().getString(R.string.invalid_password));
                             } else if (e instanceof FirebaseAuthInvalidUserException) {
-                                Toast.makeText(LoginActivity.this, "No account whith this e-mail..", Toast.LENGTH_SHORT).show();
+                                loginController.showInTextViewAuthMessage(getResources().getString(R.string.invalid_email));
                             } else {
-                                //TODO: Lembrar de modificar
-                                Toast.makeText(LoginActivity.this, "No account whith this e-mail..", Toast.LENGTH_SHORT).show();
+                                loginController.showInTextViewAuthMessage(getResources().getString(R.string.authentication_failed));
                             }
                         }
                     });
@@ -76,10 +80,20 @@ public class LoginActivity extends YouTubeBaseActivity implements YouTubePlayer.
 
     }
 
+    /**
+     * Open SignUpActivity
+     * @param v
+     */
     public void openSignUp(View v) {
         loginController.openSignUp();
     }
 
+    /**
+     * Listener from Youtube API that is called when initialization is sucess and set content in YouTubePlayerView
+     * @param provider
+     * @param youTubePlayer
+     * @param wasRestored
+     */
     @Override
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean wasRestored) {
         if (!wasRestored) {
@@ -87,6 +101,11 @@ public class LoginActivity extends YouTubeBaseActivity implements YouTubePlayer.
         }
     }
 
+    /**
+     * Listener from Youtube API that is called when initialization is failure and show a message
+     * @param provider
+     * @param youTubeInitializationResult
+     */
     @Override
     public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
         Toast.makeText(this, getResources().getString(R.string.video_fail_message), Toast.LENGTH_LONG).show();

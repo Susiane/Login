@@ -32,7 +32,12 @@
         style="@style/AppTheme.Components.EditText"
         android:elevation="2dp"
         android:hint="@string/hint_tv_password"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/tv_auth_message"
+        style="@style/AppTheme.Components.TextView"
+        android:visibility="gone" />
 
     <Button
         style="@style/AppTheme.Components.Button.Green"

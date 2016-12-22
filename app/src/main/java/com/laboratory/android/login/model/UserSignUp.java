@@ -4,17 +4,17 @@ package com.laboratory.android.login.model;
  * Created by Susiane on 21/12/2016.
  */
 
-public class UserSignIn {
+public class UserSignUp {
     private String name;
     private String lastName;
     private String eMail;
 
-    public UserSignIn(String name, String lastName, String eMail) {
+    public UserSignUp(String name, String lastName, String eMail) {
         this.name = name;
         this.lastName = lastName;
         this.eMail = eMail;
     }
-    public UserSignIn() {
+    public UserSignUp() {
 
     }
 

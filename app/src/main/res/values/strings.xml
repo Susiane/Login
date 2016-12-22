@@ -15,4 +15,20 @@
     <string name="card_2">What is your goal?</string>
     <string name="card_3">Why have mentors?</string>
     <string name="welcome">Welcome</string>
+
+    <string name="field_email_empty_message">Please enter a e-mail adress.</string>
+    <string name="field_password_empty_message">Please enter a password.</string>
+    <string name="field_first_name_empty_message">Please enter a first name.</string>
+    <string name="field_last_name_empty_message">Please enter a last name.</string>
+    <string name="field_email_invalid_message">Valid e-mail can contain
+        only latin letters, numbers, \'@\' and  \'.\'</string>
+    <string name="field_password_invalid_message">Password must be 6 characters.</string>
+    <string name="invalid_password">Invalid password.</string>
+    <string name="invalid_email">No account with this e-mail.</string>
+    <string name="authentication_failed">Authentication failed.</string>
+    <string name="sign_up_failed">Sign up failed.</string>
+    <string name="email_in_use">This e-mail is already in use.</string>
+
+
+
 </resources>

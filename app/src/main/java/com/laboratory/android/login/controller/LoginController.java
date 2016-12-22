@@ -2,11 +2,13 @@ package com.laboratory.android.login.controller;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.laboratory.android.login.R;
 import com.laboratory.android.login.model.UserLogin;
+import com.laboratory.android.login.utils.FieldsUtil;
 import com.laboratory.android.login.view.SignUpActivity;
 
 /**
@@ -18,31 +20,47 @@ public class LoginController {
     private UserLogin userLogin;
     private Intent intent;
     private Activity loginActivity;
-    private String eMailAdress;
+    private String emailAdress,password;
+    private TextView tvAuthMessage;
 
     public LoginController(Activity loginActivity) {
         userLogin = new UserLogin();
         this.loginActivity = loginActivity;
         this.txEmail = (EditText) loginActivity.findViewById(R.id.tx_email);
         this.txPassword = (EditText) loginActivity.findViewById(R.id.tx_password);
+        this.tvAuthMessage = (TextView)loginActivity.findViewById(R.id.tv_auth_message);
     }
 
+    /**
+     * get information from fields and send UserLogin object
+     * @return UserLogin object
+     */
     public UserLogin getUserFromActivity() {
             this.userLogin.seteMail(this.txEmail.getText().toString());
             this.userLogin.setPassword(this.txPassword.getText().toString());
             return this.userLogin;
     }
 
+    /**
+     * Open SignUpActivity
+     */
     public void openSignUp() {
         intent = new Intent(this.loginActivity, SignUpActivity.class);
         this.loginActivity.startActivity(intent);
     }
 
+    /**
+     * Valid fields
+     * @return
+     */
     public boolean isValidFields() {
+        this.emailAdress = this.txEmail.getText().toString();
+        this.password = this.txPassword.getText().toString();
+
         if(isEmptyFields()){
             return false;
-        }else if(isValidEmail()){
-            if (isValidPassword()){
+        }else if(FieldsUtil.isValidEmail(this.emailAdress)){
+            if (FieldsUtil.isValidPassword(this.password)){
                 return true;
             }else{
                 showInvalidPasswordlError();
@@ -54,54 +72,65 @@ public class LoginController {
         }
     }
 
-    public boolean isValidEmail() {
-        this.eMailAdress = this.txEmail.getText().toString();
-        String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
-        java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
-        java.util.regex.Matcher m = p.matcher(this.eMailAdress);
-        return m.matches();
-    }
-
-    public boolean isValidPassword(){
-        if(this.txPassword.getText().toString().length() >= 6){
-            return true;
-        }else {
-            return false;
-        }
-    }
-
+    /**
+     * Verify empty fields
+     * @return
+     */
     public boolean isEmptyFields(){
-        if(isEmpty(this.txEmail)){
+        if(FieldsUtil.isEmpty(this.emailAdress)){
             showEmptyEmailErrorMessage();
-            return false;
-        }else if(isEmpty(this.txPassword)){
-            showEmptyPassordErrorMessage();
-            return false;
-        }else{
             return true;
+        }else if(FieldsUtil.isEmpty(this.password)){
+            showEmptyPassordErrorMessage();
+            return true;
+        }else{
+            return false;
         }
     }
 
-    public boolean isEmpty(TextView textView){
-        return textView.getText().toString().isEmpty();
-    }
-
+    /**
+     * Show empty email error message in EditText
+     */
     public void showEmptyEmailErrorMessage(){
-        //TODO: PUT STRING ON RESOURCE
-        this.txEmail.setError("Please enter a email adress.");
+        this.txEmail.setError(loginActivity.getResources().getString(R.string.field_email_empty_message));
     }
+
+    /**
+     * Show empty password error message in EditText
+     */
     public void showEmptyPassordErrorMessage(){
-        //TODO: PUT STRING ON RESOURCE
-        this.txPassword.setError("Please enter a valid password.");
+        this.txPassword.setError(loginActivity.getResources().getString(R.string.field_password_empty_message));
     }
 
+    /**
+     * Show invalid error error message in EditText
+     */
     public void showInvalidEmailError(){
-        //TODO: PUT ON RESOURCE
-        this.txEmail.setError("Invalid email address. Valid e-mail can contain only latin letters, numbers, '@' and '.");
+        this.txEmail.setError(loginActivity.getResources().getString(R.string.field_email_invalid_message));
     }
 
+    /**
+     * Show invalid password error message in EditText
+     */
     public void showInvalidPasswordlError(){
-        //TODO: PUT ON RESOURCE
-        this.txPassword.setError("Password must be 6 characters");
+        this.txPassword.setError(loginActivity.getResources().getString(R.string.field_password_invalid_message));
     }
+
+    /**
+     * Show message in TextView
+     * @param message
+     */
+    public void showInTextViewAuthMessage(String message){
+        this.tvAuthMessage.setVisibility(View.VISIBLE);
+        this.tvAuthMessage.setText(message);
+    }
+
+    /**
+     * Clean TextView
+     */
+    public void cleanTextViewAuthMessage(){
+        this.tvAuthMessage.setVisibility(View.GONE);
+        this.tvAuthMessage.setText(" ");
+    }
+
 }
